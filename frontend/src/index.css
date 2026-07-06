@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+
+body{
+
+background:#f5f7fb;
+
+font-family:Inter,sans-serif;
+
+}

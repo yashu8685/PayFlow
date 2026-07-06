@@ -1,26 +1,56 @@
-import { Link } from "react-router-dom";
+
+
+import { Link, useNavigate } from "react-router-dom";
+import { User, CreditCard, LogOut } from "lucide-react";
 
 function Navbar() {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("access");
+    localStorage.removeItem("refresh");
+    navigate("/login");
+  };
+
   return (
-    <nav className="bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-blue-600">
+    <nav className="bg-blue-600 text-white shadow-lg">
+      <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
+
+        <Link
+          to="/dashboard"
+          className="text-2xl font-bold"
+        >
           💸 PayFlow
-        </h1>
+        </Link>
 
-        <div className="space-x-6">
-          <Link className="hover:text-blue-600" to="/">
-            Home
+        <div className="flex gap-6">
+
+          <Link
+            to="/payment"
+            className="flex items-center gap-2"
+          >
+            <CreditCard size={20} />
+            Payment
           </Link>
 
-          <Link className="hover:text-blue-600" to="/login">
-            Login
+          <Link
+            to="/profile"
+            className="flex items-center gap-2"
+          >
+            <User size={20} />
+            Profile
           </Link>
 
-          <Link className="hover:text-blue-600" to="/register">
-            Register
-          </Link>
+          <button
+            onClick={logout}
+            className="flex items-center gap-2"
+          >
+            <LogOut size={20} />
+            Logout
+          </button>
+
         </div>
+
       </div>
     </nav>
   );

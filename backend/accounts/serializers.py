@@ -16,3 +16,17 @@ class RegisterSerializer(serializers.ModelSerializer):
             phone=validated_data.get("phone"),
             password=validated_data["password"],
         )
+    
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = [
+            "id",
+            "username",
+            "email",
+            "phone",
+            "profile_picture",
+        ]

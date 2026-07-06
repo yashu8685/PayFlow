@@ -9,7 +9,7 @@ import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 import Payment from "./pages/Payment";
-
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -27,6 +27,15 @@ function App() {
           element={
             <ProtectedRoute>
               <Payment />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
             </ProtectedRoute>
           }
         />
